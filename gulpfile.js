@@ -1,4 +1,5 @@
 'use strict';
+debugger;
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var wrench = require('wrench');
@@ -15,7 +16,13 @@ var options = {
   },
   wiredep: {
     directory: 'bower_components',
-    exclude: [/bootstrap-sass-official\/.*\.js/, /bootstrap\.css/]
+    verbose: true,
+    overrides: {
+      'bootswatch': {
+        'main': 'simplex/bootstrap.css'
+      }
+    },
+    exclude: [/bootstrap-sass-official\/.*\.js/, /bootstrap.scss/]
   }
 };
 

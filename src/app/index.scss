@@ -12,6 +12,31 @@
     width: 50px;
   }
 }
+.pod-enter, 
+.pod-leave
+{ 
+    -webkit-transition: 1s cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -moz-transition: 1s cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -ms-transition: 1s cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -o-transition: 1s cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    transition: 1s cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    position: relative;
+    display: block;
+} 
+ 
+.pod-enter.pod-enter-active, 
+.pod-leave {
+    opacity: 1;
+    top: 0;
+    height: 30px;
+}
+ 
+.pod-leave.pod-leave-active,
+.pod-enter {
+    opacity: 0;
+    top: -50px;
+    height: 0px;
+}
 
 /* Do not remove this comments bellow. It's the markers used by gulp-inject to inject
    all your sass files automatically */

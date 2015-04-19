@@ -3,11 +3,17 @@
   <div ng-include="'app/components/navbar/navbar.html'"></div>
 
   <div class="row">
-    <div class="col-sm-6 col-md-4" ng-repeat="node in nodes.items">
+    <div class="col-sm-3 col-md-offset-9 text-right">
+      <small>Last updated at: {{last_update | date:'yyyy-MM-dd hh:mm:ss' }}</small>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 col-md-4" ng-repeat="node in nodes.items track by node.id">
       <div class="panel panel-default">
         <div class="panel-heading"><h4>VM: {{node.id}}</h4></div>
         <div class="panel-body">
-          <div class="well" ng-repeat="pod in getAllPodsOnHost(node.hostIP)">
+          <div class="pod well" ng-repeat="pod in getAllPodsOnHost(node.hostIP) track by pod.id" ng-animate-children>
             <h5>POD: {{pod.id}}</h5>
             Containers:
             <div ng-repeat="key in pod.desiredState.manifest.containers">

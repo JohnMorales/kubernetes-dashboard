@@ -1,0 +1,7 @@
+bower_components
+e2e
+gulp
+node_modules
+src
+*.js
+*.json
